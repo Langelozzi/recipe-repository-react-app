@@ -19,7 +19,7 @@ import {
   ArrowBack as ArrowBackIcon,
 } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
-import { useAuth } from "../utils/contexts/AuthContext";
+import { logout } from "../utils/helpers/authMethods";
 
 const useStyles = makeStyles(() => ({
   bottomMenuButtons: {
@@ -33,7 +33,6 @@ const MenuComponent = (props, ref) => {
   const { isOpen, onOpen, onClose, ...additionalProps } = props;
 
   const classes = useStyles();
-  const { logout } = useAuth();
 
   return (
     <SideSheet

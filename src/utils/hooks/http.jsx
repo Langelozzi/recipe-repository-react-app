@@ -1,21 +1,16 @@
 import axios from "axios";
-import useAuth from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 
 const useHttp = () => {
-  const [axiosInstance, setAxiosInstance] = useState(null);
+  const [http, setHttp] = useState(null);
 
   const { logout } = useAuth();
 
   useEffect(() => {
-    const axiosInstance = axios.create({
-      baseURL: `${import.meta.env.VITE_API_URL_BASE}`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const http = axios.create({});
 
-    axiosInstance.interceptors.request.use(
+    http.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("accessToken");
         if (token) {
@@ -28,7 +23,7 @@ const useHttp = () => {
       }
     );
 
-    axiosInstance.interceptors.response.use(
+    http.interceptors.response.use(
       (response) => {
         return response;
       },
@@ -45,10 +40,10 @@ const useHttp = () => {
       }
     );
 
-    setAxiosInstance(axiosInstance);
-  }, [logout, setAxiosInstance]);
+    setHttp(http);
+  }, [logout]);
 
-  return axiosInstance;
+  return http;
 };
 
 export default useHttp;
