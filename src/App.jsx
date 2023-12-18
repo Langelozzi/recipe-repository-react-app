@@ -5,7 +5,7 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Welcome from "./pages/Welcome.jsx";
-import Protected from "./utils/Protected.jsx";
+import Protected from "./components/Protected.jsx";
 
 const theme = createTheme({
   palette: {

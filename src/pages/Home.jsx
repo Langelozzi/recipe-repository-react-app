@@ -1,7 +1,10 @@
+import Navbar from "../components/NavBar";
+// import useHttp from "../utils/hooks/http";
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Navbar />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../utils/contexts/AuthContext";
 import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 

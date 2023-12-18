@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 });
 
 const FormComponent = (props, ref) => {
-  const { onSubmit, validate, children } = props;
+  const { onSubmit, validate, buttonLabel, children } = props;
   const classes = useStyles();
 
   return (
@@ -33,7 +33,7 @@ const FormComponent = (props, ref) => {
                 type="submit"
                 disabled={submitting || pristine || invalid}
               >
-                Submit
+                {buttonLabel || "Submit"}
               </Button>
             </Grid>
           </Grid>
@@ -48,6 +48,7 @@ Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   validate: PropTypes.func,
   children: PropTypes.node.isRequired,
+  buttonLabel: PropTypes.string,
 };
 
 export default Form;

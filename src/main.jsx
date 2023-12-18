@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import "./index.css";
-import { AuthProvider } from "./utils/AuthContext.jsx";
+import { AuthProvider } from "./utils/contexts/AuthContext.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(

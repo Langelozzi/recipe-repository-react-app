@@ -17,13 +17,14 @@ export const AuthProvider = (props) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        `${import.meta.env.VITE_API_URL_BASE}/auth/login`,
         body
       );
 
       if (response.status == 200) {
-        console.log(response.data.accessToken);
         localStorage.setItem("accessToken", response.data.accessToken);
+        // go to the home page
+        window.location.href = "/home";
       }
     } catch (error) {
       if (error.response.status == 400) {
@@ -36,6 +37,7 @@ export const AuthProvider = (props) => {
 
   const logout = () => {
     localStorage.removeItem("accessToken");
+    window.location.reload();
   };
 
   return (

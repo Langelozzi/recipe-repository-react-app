@@ -45,7 +45,11 @@ const AuthForm = (props) => {
   };
 
   return (
-    <Form onSubmit={onSubmit} validate={validate}>
+    <Form
+      onSubmit={onSubmit}
+      validate={validate}
+      buttonLabel={isRegister ? "Register" : "Login"}
+    >
       {isRegister && (
         <>
           <FormField
